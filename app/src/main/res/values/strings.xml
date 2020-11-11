@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Weather App</string>
     <string name="banner">Погода во всем мире с интернет-магазином</string>
-    <string name="city">Введите название города или индекс</string>
+    <string name="city">Введите название города</string>
     <string name="rozetka">\"Розетка\"</string>
     <string name="search">Узнать погоду</string>
 </resources>
