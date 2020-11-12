@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.15" />
+        app:layout_constraintGuide_percent="0.11" />
 
     <EditText
         android:id="@+id/editTextCity"
@@ -54,6 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
         android:background="@color/teal_700"
         android:text="@string/search"
         android:textColor="@color/white"
@@ -97,6 +98,7 @@
 
     <TextView
         android:id="@+id/textViewRozetka"
+        android:padding="4dp"
         android:gravity="center"
         android:layout_width="0dp"
         android:layout_height="0dp"
