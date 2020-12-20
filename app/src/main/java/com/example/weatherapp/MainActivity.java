@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -86,22 +87,27 @@ public class MainActivity extends AppCompatActivity {
                     urlConnection.disconnect();
                 }
             }
-            return null;
+           // return "";
+         return null;
         }
 
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            try {
-                JSONObject jsonObject = new JSONObject(s);
-                String city = jsonObject.getString("name");
-                String temp = jsonObject.getJSONObject("main").getString("temp");
-                String description = jsonObject.getJSONArray("weather").getJSONObject(0).getString("description");
-                String pressure = jsonObject.getJSONObject("main").getString("pressure");
-                String weather = String.format("%s\nТемпература: %s°C\nНа улице: %s\nАтмосферное давление: %s mm Hg\n \"Розетка\" желает Вам удачного дня", city, temp, description, pressure);
-                textViewWeather.setText(weather);
-            } catch (JSONException e) {
-                e.printStackTrace();
+            if (s != null) {
+                try {
+                    JSONObject jsonObject = new JSONObject(s);
+                    String city = jsonObject.getString("name");
+                    String temp = jsonObject.getJSONObject("main").getString("temp");
+                    String description = jsonObject.getJSONArray("weather").getJSONObject(0).getString("description");
+                    String pressure = jsonObject.getJSONObject("main").getString("pressure");
+                    String weather = String.format("%s\nТемпература: %s°C\nНа улице: %s\nАтмосферное давление: %s mm Hg\n \"Розетка\" желает Вам удачного дня", city, temp, description, pressure);
+                    textViewWeather.setText(weather);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                Toast.makeText(MainActivity.this, "Город не найден", Toast.LENGTH_SHORT).show();
             }
 
         }
