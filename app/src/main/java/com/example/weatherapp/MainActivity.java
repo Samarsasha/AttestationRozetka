@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             } else {
                 Toast.makeText(MainActivity.this, "Город не найден", Toast.LENGTH_SHORT).show();
+                textViewWeather.setText("");
             }
 
         }
